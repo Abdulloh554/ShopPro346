@@ -1,1 +1,55 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-neu-light: #e0e5ec;
+  --color-neu-dark: #2d3036;
+}
+
+@layer utilities {
+  .neu-flat {
+    background: var(--color-neu-light);
+    box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgba(255,255,255,0.8);
+  }
+  .dark .neu-flat {
+    background: var(--color-neu-dark);
+    box-shadow: 9px 9px 16px rgba(15,17,21,0.6), -9px -9px 16px rgba(60,65,75,0.5);
+  }
+  
+  .neu-pressed {
+    background: var(--color-neu-light);
+    box-shadow: inset 6px 6px 10px 0 rgba(163,177,198,0.6), inset -6px -6px 10px 0 rgba(255,255,255,0.8);
+  }
+  .dark .neu-pressed {
+    background: var(--color-neu-dark);
+    box-shadow: inset 6px 6px 10px 0 rgba(15,17,21,0.6), inset -6px -6px 10px 0 rgba(60,65,75,0.5);
+  }
+
+  .neu-convex {
+    background: linear-gradient(145deg, #f0f5fc, #cacfd5);
+    box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgba(255,255,255,0.8);
+  }
+  .dark .neu-convex {
+    background: linear-gradient(145deg, #30333a, #26282d);
+    box-shadow: 9px 9px 16px rgba(15,17,21,0.6), -9px -9px 16px rgba(60,65,75,0.5);
+  }
+
+  .neu-bg {
+    background: var(--color-neu-light);
+  }
+  .dark .neu-bg {
+    background: var(--color-neu-dark);
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-neu-light);
+  color: #4b5563; /* tailwind gray-600 */
+}
+
+html.dark body {
+  background-color: var(--color-neu-dark);
+  color: #d1d5db; /* tailwind gray-300 */
+}
