@@ -153,7 +153,6 @@ function MainLayout() {
         onClose={() => setDrawerVisible(false)}
         open={drawerVisible}
         className="neu-bg"
-        style={{ background: 'var(--color-neu-light)' }}
         styles={{ 
           wrapper: { background: 'transparent' }, 
           content: { background: 'transparent' },

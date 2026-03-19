@@ -53,3 +53,16 @@ html.dark body {
   background-color: var(--color-neu-dark);
   color: #d1d5db; /* tailwind gray-300 */
 }
+
+/* ===== Ant Design Drawer — dark mode overrides ===== */
+html.dark .ant-drawer-content {
+  background-color: var(--color-neu-dark) !important;
+  color: #d1d5db;
+}
+html.dark .ant-drawer-header {
+  background-color: var(--color-neu-dark) !important;
+  border-bottom: none;
+}
+html.dark .ant-drawer-body {
+  background-color: var(--color-neu-dark) !important;
+}

@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 
 function Theme() {
 
-    const [theme, setTheme] = useState("light")
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem("theme") || "light"
+    })
 
     useEffect(() => {
         document.documentElement.className = theme
+        localStorage.setItem("theme", theme)
     },[theme])
 
   return (
