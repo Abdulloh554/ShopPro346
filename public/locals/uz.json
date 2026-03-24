@@ -39,5 +39,20 @@
   "feat_choice": "Keng tanlov",
   "feat_choice_desc": "Dunyoning eng mashhur brendlaridan mahsulotlar.",
   "mission": "Bizning Maqsadimiz",
-  "mission_desc": "Sizning uyingizga quvonch va qulaylik olib kirish. Har bir xaridda sifat, ishonch va samimiylikni his etishingizni ta'minlash."
+  "mission_desc": "Sizning uyingizga quvonch va qulaylik olib kirish. Har bir xaridda sifat, ishonch va samimiylikni his etishingizni ta'minlash.",
+  "login_subtitle": "Hisobingizga kiring",
+  "login_username": "Login",
+  "login_username_placeholder": "Loginni kiriting",
+  "login_username_required": "Iltimos, loginni kiriting!",
+  "login_password": "Parol",
+  "login_password_placeholder": "Parolni kiriting",
+  "login_password_required": "Iltimos, parolni kiriting!",
+  "login_btn": "Kirish",
+  "login_success": "Muvaffaqiyatli kirdingiz!",
+  "login_error": "Kirish xatosi. Qaytadan urinib ko'ring.",
+  "login_time": "Vaqt",
+  "profile": "Profil",
+  "profile_subtitle": "Shaxsiy kabinet",
+  "logout": "Chiqish",
+  "logout_success": "Tizimdan chiqdingiz!"
 }

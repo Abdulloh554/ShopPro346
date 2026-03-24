@@ -3,8 +3,8 @@ import { Form, Input, Button, message } from 'antd';
 import { SendOutlined } from '@ant-design/icons';
 import { useTranslation } from "react-i18next";
 
-const TELEGRAM_BOT_TOKEN = '8280605912:AAFoTgF38CJfq2SZZnPleWvYjr3vOktpzKk';
-const TELEGRAM_CHAT_ID = '-1003408650600';
+const TELEGRAM_BOT_TOKEN = '8764690347:AAETV0P4WaANQWmDQHGSgowX2Id5Q7bUn0A';
+const TELEGRAM_CHAT_ID = '5781687561';
 
 function Contact() {
   const { t } = useTranslation();
@@ -43,7 +43,7 @@ function Contact() {
   };
 
   return (
-    <section className="py-12 md:py-20 font-sans neu-bg min-h-screen">
+    <section className="py-12 md:py-20 font-sans neu-bg h-screen overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 md:px-0">
         <div className="text-center mb-12 md:mb-16">
           <h1 className="text-4xl md:text-5xl font-black neu-text uppercase tracking-tight mb-4">
@@ -60,7 +60,7 @@ function Contact() {
         {/* NEUMORPHIC CONTAINER */}
         <div className="neu-flat rounded-[40px] overflow-hidden">
           <div className="grid md:grid-cols-2">
-            
+
             {/* Left Info Panel */}
             <div className="p-10 md:p-14 flex flex-col justify-center">
               <h3 className="text-3xl font-black neu-text mb-6 uppercase tracking-wide">
@@ -103,9 +103,9 @@ function Contact() {
                   name="name"
                   rules={[{ required: true, message: t('name_required', 'Iltimos, ismingizni kiriting!') }]}
                 >
-                  <Input 
-                    size="large" 
-                    placeholder={t('name_placeholder', 'Sizning ismingiz')} 
+                  <Input
+                    size="large"
+                    placeholder={t('name_placeholder', 'Sizning ismingiz')}
                     className="neu-pressed neu-text border-none py-4 px-6 rounded-[20px] shadow-none !bg-transparent placeholder:opacity-50 font-medium text-lg"
                   />
                 </Form.Item>
@@ -117,10 +117,14 @@ function Contact() {
                     { required: true, message: t('phone_required', 'Iltimos, telefon raqamingizni kiriting!') }
                   ]}
                 >
-                  <Input 
-                    size="large" 
-                    placeholder="+998 90 123 45 67" 
-                    className="neu-pressed neu-text border-none py-4 px-6 rounded-[20px] shadow-none !bg-transparent placeholder:opacity-50 font-medium text-lg"
+                  <Input
+                    size="large"
+                    placeholder="+998 90 123 45 67"
+                    className="    neu-pressed neu-text border-none py-4 px-6 rounded-[20px]
+    shadow-none !bg-transparent
+    text-gray-900 dark:text-white
+    placeholder:opacity-50 dark:placeholder:text-gray-400
+    font-medium text-lg"
                   />
                 </Form.Item>
 
@@ -129,19 +133,19 @@ function Contact() {
                   name="comment"
                   rules={[{ required: true, message: t('message_required', 'Iltimos, xabaringizni yozing!') }]}
                 >
-                  <Input.TextArea 
-                    size="large" 
-                    rows={4} 
-                    placeholder={t('message_placeholder', 'Xabaringizni shu yerga yozing...')} 
+                  <Input.TextArea
+                    size="large"
+                    rows={4}
+                    placeholder={t('message_placeholder', 'Xabaringizni shu yerga yozing...')}
                     className="neu-pressed neu-text border-none py-4 px-6 rounded-[20px] shadow-none !bg-transparent placeholder:opacity-50 font-medium text-lg"
                   />
                 </Form.Item>
 
                 <Form.Item className="mb-0 pt-6">
-                  <Button 
-                    type="primary" 
-                    htmlType="submit" 
-                    size="large" 
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    size="large"
                     loading={loading}
                     icon={<SendOutlined />}
                     className="w-full neu-convex border-none h-16 text-lg font-black rounded-full text-blue-500 hover:text-blue-400 active:neu-pressed active:text-blue-600 transition-all uppercase tracking-widest !bg-transparent"

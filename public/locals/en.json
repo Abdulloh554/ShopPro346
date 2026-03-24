@@ -39,5 +39,20 @@
   "feat_choice": "Wide Assortment",
   "feat_choice_desc": "Products from the most famous brands in the world.",
   "mission": "Our Mission",
-  "mission_desc": "Bringing joy and comfort to your home. Ensuring you feel quality, trust, and sincerity in every purchase."
+  "mission_desc": "Bringing joy and comfort to your home. Ensuring you feel quality, trust, and sincerity in every purchase.",
+  "login_subtitle": "Sign in to your account",
+  "login_username": "Username",
+  "login_username_placeholder": "Enter your username",
+  "login_username_required": "Please enter your username!",
+  "login_password": "Password",
+  "login_password_placeholder": "Enter your password",
+  "login_password_required": "Please enter your password!",
+  "login_btn": "Sign In",
+  "login_success": "Logged in successfully!",
+  "login_error": "Login failed. Please try again.",
+  "login_time": "Time",
+  "profile": "Profile",
+  "profile_subtitle": "Personal cabinet",
+  "logout": "Log Out",
+  "logout_success": "You have logged out!"
 }

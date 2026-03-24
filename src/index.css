@@ -40,6 +40,13 @@
   .dark .neu-bg {
     background: var(--color-neu-dark);
   }
+
+  .neu-text {
+    color: #3b4252;
+  }
+  .dark .neu-text {
+    color: #d8dee9;
+  }
 }
 
 body {
@@ -52,6 +59,20 @@ body {
 html.dark body {
   background-color: var(--color-neu-dark);
   color: #d1d5db; /* tailwind gray-300 */
+}
+
+/* ===== Ant Design input / button text color overrides ===== */
+.ant-input,
+.ant-input-affix-wrapper > input.ant-input,
+.ant-input-textarea textarea,
+.ant-btn {
+  color: #3b4252 !important;
+}
+html.dark .ant-input,
+html.dark .ant-input-affix-wrapper > input.ant-input,
+html.dark .ant-input-textarea textarea,
+html.dark .ant-btn {
+  color: #d8dee9 !important;
 }
 
 /* ===== Ant Design Drawer — dark mode overrides ===== */
