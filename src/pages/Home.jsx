@@ -22,7 +22,7 @@ function Home() {
       {/* Hero Carousel in Neumorphic Container */}
       <div className="neu-flat rounded-[32px] overflow-hidden relative max-w-[1440px] mx-auto w-full p-2 md:p-4">
         <div className="rounded-[24px] overflow-hidden neu-pressed">
-          <Carousel autoplay effect="fade" dotPosition="bottom">
+          <Carousel arrows autoplay effect="fade" dotPosition="bottom">
             {carouselItems.map(item => (
               <div key={item.id} className="relative h-[500px] md:h-[650px] outline-none">
                 <div 

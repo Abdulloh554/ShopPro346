@@ -59,9 +59,6 @@ function MainLayout() {
 
     return (
       <>
-        <NavLink to="/home" className={linkClass} onClick={onClick}>
-          {t('home', 'Asosiy')}
-        </NavLink>
         <NavLink to="/contact" className={linkClass} onClick={onClick}>
           {t('contact', 'Aloqa')}
         </NavLink>
@@ -96,7 +93,7 @@ function MainLayout() {
       >
         <div className="flex items-center justify-between px-6 md:px-12 max-w-[1440px] mx-auto">
           {/* LOGO */}
-          <NavLink to="/home" className="flex items-center neu-flat px-6 py-2 rounded-2xl">
+          <NavLink to="/" className="flex items-center neu-flat px-6 py-2 rounded-2xl">
             <ShopLogo />
           </NavLink>
 
@@ -145,6 +142,7 @@ function MainLayout() {
           </div>
         </div>
       </header>
+
 
       {/* MOBILE DRAWER */}
       <Drawer
