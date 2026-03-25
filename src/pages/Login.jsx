@@ -79,7 +79,7 @@ function Login() {
   /* ─── PROFILE VIEW ─── */
   if (user) {
     return (
-      <section className="py-12 md:py-20 font-sans neu-bg h-screen overflow-hidden flex items-center justify-center">
+      <section className="py-4 md:py-8 font-sans neu-bg flex items-center justify-center">
         <div className="w-full max-w-md px-6">
           {/* Avatar */}
           <div className="text-center mb-10">
@@ -139,7 +139,7 @@ function Login() {
 
   /* ─── LOGIN VIEW ─── */
   return (
-    <section className="py-12 md:py-20 font-sans neu-bg h-screen overflow-hidden flex items-center justify-center">
+    <section className="py-4 md:py-8 font-sans neu-bg flex items-center justify-center">
       <div className="w-full max-w-md px-6">
         {/* Header */}
         <div className="text-center mb-10">

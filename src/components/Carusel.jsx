@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Carousel } from "antd";
+import { useTranslation } from "react-i18next";
 
 function Carusel() {
+    const { t } = useTranslation();
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -23,7 +25,7 @@ function Carusel() {
         fetchUsers();
     }, []);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <p className="text-center mt-10 neu-text">{t("loading")}</p>;
 
     return (
         <div className="font-sans py-8 neu-bg min-h-screen">
@@ -36,7 +38,7 @@ function Carusel() {
                                 className="relative h-[500px] md:h-[650px] outline-none"
                             >
                                 <div
-                                    className="absolute inset-0 bg-cover bg-center mix-blend-multiply opacity-90 dark:opacity-80"
+                                    className="absolute inset-0 bg-cover bg-center mix-blend-normal dark:mix-blend-overlay opacity-95 dark:opacity-70"
                                     style={{ backgroundImage: `url(${item.image})` }}
                                 />
                             </div>

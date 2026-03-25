@@ -43,7 +43,7 @@ function Contact() {
   };
 
   return (
-    <section className="py-12 md:py-20 font-sans neu-bg h-screen overflow-hidden">
+    <section className="py-4 md:py-8 font-sans neu-bg">
       <div className="max-w-5xl mx-auto px-6 md:px-0">
         <div className="text-center mb-12 md:mb-16">
           <h1 className="text-4xl md:text-5xl font-black neu-text uppercase tracking-tight mb-4">

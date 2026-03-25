@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 function Theme() {
+    const { t } = useTranslation();
 
     const [theme, setTheme] = useState(() => {
         return localStorage.getItem("theme") || "light"
@@ -20,7 +22,7 @@ function Theme() {
             setTheme("light")
         }
     }}
-  class="group relative px-5 py-2.5 text-sm font-semibold
+  className="group relative px-5 py-2.5 text-sm font-semibold
          rounded-xl border border-gray-300
          text-gray-800 bg-white
          transition-all duration-300 ease-out
@@ -35,10 +37,10 @@ function Theme() {
          dark:bg-gray-800
          dark:border-gray-600
          dark:text-gray-100
-         dark:hover:bg-gray-700">
-
-  <span class="flex items-center gap-2">
-    {theme === "light" ? "🌙 dark" : "☀️ light"}
+         dark:hover:bg-gray-700"
+>
+  <span className="flex items-center gap-2">
+    {theme === "light" ? `🌙 ${t("dark_mode")}` : `☀️ ${t("light_mode")}`}
   </span>
 </button>
   )

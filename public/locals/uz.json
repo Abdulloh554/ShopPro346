@@ -54,5 +54,10 @@
   "profile": "Profil",
   "profile_subtitle": "Shaxsiy kabinet",
   "logout": "Chiqish",
-  "logout_success": "Tizimdan chiqdingiz!"
+  "logout_success": "Tizimdan chiqdingiz!",
+  "loading": "Yuklanmoqda...",
+  "products": "Mahsulotlar",
+  "add_to_cart": "Savatga qo'shish",
+  "dark_mode": "Tungi rejim",
+  "light_mode": "Kunduzgi rejim"
 }

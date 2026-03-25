@@ -54,5 +54,10 @@
   "profile": "Profile",
   "profile_subtitle": "Personal cabinet",
   "logout": "Log Out",
-  "logout_success": "You have logged out!"
+  "logout_success": "You have logged out!",
+  "loading": "Loading...",
+  "products": "Products",
+  "add_to_cart": "Add to cart",
+  "dark_mode": "Dark Mode",
+  "light_mode": "Light Mode"
 }

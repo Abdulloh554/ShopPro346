@@ -68,6 +68,7 @@ function MainLayout() {
         <NavLink to="/login" className={linkClass} onClick={onClick}>
           {t('login', 'Kirish')}
         </NavLink>
+        
       </>
     );
   };
@@ -99,11 +100,11 @@ function MainLayout() {
 
           {/* DESKTOP NAVBAR */}
           <nav className="hidden md:flex items-center gap-6">
-            <NavItems />
             
-            <div className="w-px h-10 bg-gray-300 dark:bg-gray-600 mx-2"></div>
-
             <ActionIcons />
+            <div className="w-px h-10 bg-gray-300 dark:bg-gray-600 mx-2"></div>
+            <NavItems />
+
 
             {/* LANGUAGE */}
             <div className="neu-flat rounded-2xl px-2 py-1">
@@ -184,7 +185,7 @@ function MainLayout() {
       </Drawer>
 
       {/* ================= MAIN ================= */}
-      <main className="pt-10 px-6 md:px-12 pb-20 max-w-[1440px] mx-auto relative z-10 neu-bg">
+      <main className="pt-10 px-6 md:px-12 pb-10 max-w-[1440px] mx-auto relative z-10 neu-bg">
         <Outlet />
       </main>
     </div>

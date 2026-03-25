@@ -54,5 +54,10 @@
   "profile": "Профиль",
   "profile_subtitle": "Личный кабинет",
   "logout": "Выйти",
-  "logout_success": "Вы вышли из системы!"
+  "logout_success": "Вы вышли из системы!",
+  "loading": "Загрузка...",
+  "products": "Продукты",
+  "add_to_cart": "Добавить в корзину",
+  "dark_mode": "Темный режим",
+  "light_mode": "Светлый режим"
 }
