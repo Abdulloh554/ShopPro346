@@ -1,0 +1,704 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Wireless Headphones",
+            "price": 59,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=1"
+        },
+        {
+            "id": 2,
+            "title": "Smart Watch",
+            "price": 120,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=2"
+        },
+        {
+            "id": 3,
+            "title": "Running Shoes",
+            "price": 75,
+            "category": "Fashion",
+            "image": "https://picsum.photos/400?random=3"
+        },
+        {
+            "id": 4,
+            "title": "Backpack",
+            "price": 40,
+            "category": "Accessories",
+            "image": "https://picsum.photos/400?random=4"
+        },
+        {
+            "id": 5,
+            "title": "Bluetooth Speaker",
+            "price": 65,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=5"
+        },
+        {
+            "id": 6,
+            "title": "Gaming Mouse",
+            "price": 35,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=6"
+        },
+        {
+            "id": 7,
+            "title": "Keyboard RGB",
+            "price": 80,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=7"
+        },
+        {
+            "id": 8,
+            "title": "Sunglasses",
+            "price": 25,
+            "category": "Fashion",
+            "image": "https://picsum.photos/400?random=8"
+        },
+        {
+            "id": 9,
+            "title": "Leather Wallet",
+            "price": 30,
+            "category": "Accessories",
+            "image": "https://picsum.photos/400?random=9"
+        },
+        {
+            "id": 10,
+            "title": "Casual T-Shirt",
+            "price": 20,
+            "category": "Fashion",
+            "image": "https://picsum.photos/400?random=10"
+        },
+        {
+            "id": 11,
+            "title": "Laptop Stand",
+            "price": 45,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=11"
+        },
+        {
+            "id": 12,
+            "title": "Desk Lamp",
+            "price": 32,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=12"
+        },
+        {
+            "id": 13,
+            "title": "Coffee Mug",
+            "price": 12,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=13"
+        },
+        {
+            "id": 14,
+            "title": "Notebook",
+            "price": 8,
+            "category": "Office",
+            "image": "https://picsum.photos/400?random=14"
+        },
+        {
+            "id": 15,
+            "title": "Pen Set",
+            "price": 15,
+            "category": "Office",
+            "image": "https://picsum.photos/400?random=15"
+        },
+        {
+            "id": 16,
+            "title": "Office Chair",
+            "price": 150,
+            "category": "Furniture",
+            "image": "https://picsum.photos/400?random=16"
+        },
+        {
+            "id": 17,
+            "title": "Table Clock",
+            "price": 22,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=17"
+        },
+        {
+            "id": 18,
+            "title": "Phone Case",
+            "price": 18,
+            "category": "Accessories",
+            "image": "https://picsum.photos/400?random=18"
+        },
+        {
+            "id": 19,
+            "title": "Power Bank",
+            "price": 50,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=19"
+        },
+        {
+            "id": 20,
+            "title": "USB Cable",
+            "price": 10,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=20"
+        },
+        {
+            "id": 21,
+            "title": "Sneakers",
+            "price": 90,
+            "category": "Fashion",
+            "image": "https://picsum.photos/400?random=21"
+        },
+        {
+            "id": 22,
+            "title": "Hoodie",
+            "price": 55,
+            "category": "Fashion",
+            "image": "https://picsum.photos/400?random=22"
+        },
+        {
+            "id": 23,
+            "title": "Jeans",
+            "price": 70,
+            "category": "Fashion",
+            "image": "https://picsum.photos/400?random=23"
+        },
+        {
+            "id": 24,
+            "title": "Cap",
+            "price": 18,
+            "category": "Fashion",
+            "image": "https://picsum.photos/400?random=24"
+        },
+        {
+            "id": 25,
+            "title": "Jacket",
+            "price": 110,
+            "category": "Fashion",
+            "image": "https://picsum.photos/400?random=25"
+        },
+        {
+            "id": 26,
+            "title": "Monitor 24 inch",
+            "price": 210,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=26"
+        },
+        {
+            "id": 27,
+            "title": "Webcam HD",
+            "price": 60,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=27"
+        },
+        {
+            "id": 28,
+            "title": "Microphone",
+            "price": 85,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=28"
+        },
+        {
+            "id": 29,
+            "title": "Tripod Stand",
+            "price": 45,
+            "category": "Accessories",
+            "image": "https://picsum.photos/400?random=29"
+        },
+        {
+            "id": 30,
+            "title": "Ring Light",
+            "price": 55,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=30"
+        },
+        {
+            "id": 31,
+            "title": "Water Bottle",
+            "price": 14,
+            "category": "Lifestyle",
+            "image": "https://picsum.photos/400?random=31"
+        },
+        {
+            "id": 32,
+            "title": "Yoga Mat",
+            "price": 35,
+            "category": "Sport",
+            "image": "https://picsum.photos/400?random=32"
+        },
+        {
+            "id": 33,
+            "title": "Dumbbells",
+            "price": 95,
+            "category": "Sport",
+            "image": "https://picsum.photos/400?random=33"
+        },
+        {
+            "id": 34,
+            "title": "Football",
+            "price": 28,
+            "category": "Sport",
+            "image": "https://picsum.photos/400?random=34"
+        },
+        {
+            "id": 35,
+            "title": "Basketball",
+            "price": 30,
+            "category": "Sport",
+            "image": "https://picsum.photos/400?random=35"
+        },
+        {
+            "id": 36,
+            "title": "Bed Lamp",
+            "price": 40,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=36"
+        },
+        {
+            "id": 37,
+            "title": "Wall Decor",
+            "price": 50,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=37"
+        },
+        {
+            "id": 38,
+            "title": "Plant Pot",
+            "price": 22,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=38"
+        },
+        {
+            "id": 39,
+            "title": "Blanket",
+            "price": 60,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=39"
+        },
+        {
+            "id": 40,
+            "title": "Pillow",
+            "price": 25,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=40"
+        },
+        {
+            "id": 41,
+            "title": "Tablet",
+            "price": 320,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=41"
+        },
+        {
+            "id": 42,
+            "title": "Smartphone",
+            "price": 699,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=42"
+        },
+        {
+            "id": 43,
+            "title": "Laptop",
+            "price": 1200,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=43"
+        },
+        {
+            "id": 44,
+            "title": "Router WiFi",
+            "price": 85,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=44"
+        },
+        {
+            "id": 45,
+            "title": "SSD 1TB",
+            "price": 140,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=45"
+        },
+        {
+            "id": 46,
+            "title": "External HDD",
+            "price": 110,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=46"
+        },
+        {
+            "id": 47,
+            "title": "Printer",
+            "price": 200,
+            "category": "Office",
+            "image": "https://picsum.photos/400?random=47"
+        },
+        {
+            "id": 48,
+            "title": "Scanner",
+            "price": 170,
+            "category": "Office",
+            "image": "https://picsum.photos/400?random=48"
+        },
+        {
+            "id": 49,
+            "title": "Projector",
+            "price": 450,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=49"
+        },
+        {
+            "id": 50,
+            "title": "VR Headset",
+            "price": 380,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=50"
+        },
+        {
+            "id": 51,
+            "title": "Gaming Chair",
+            "price": 260,
+            "category": "Furniture",
+            "image": "https://picsum.photos/400?random=51"
+        },
+        {
+            "id": 52,
+            "title": "Desk Table",
+            "price": 300,
+            "category": "Furniture",
+            "image": "https://picsum.photos/400?random=52"
+        },
+        {
+            "id": 53,
+            "title": "LED Strip Light",
+            "price": 25,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=53"
+        },
+        {
+            "id": 54,
+            "title": "Air Purifier",
+            "price": 180,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=54"
+        },
+        {
+            "id": 55,
+            "title": "Fan Cooler",
+            "price": 95,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=55"
+        },
+        {
+            "id": 56,
+            "title": "Electric Kettle",
+            "price": 45,
+            "category": "Kitchen",
+            "image": "https://picsum.photos/400?random=56"
+        },
+        {
+            "id": 57,
+            "title": "Blender",
+            "price": 70,
+            "category": "Kitchen",
+            "image": "https://picsum.photos/400?random=57"
+        },
+        {
+            "id": 58,
+            "title": "Toaster",
+            "price": 38,
+            "category": "Kitchen",
+            "image": "https://picsum.photos/400?random=58"
+        },
+        {
+            "id": 59,
+            "title": "Microwave Oven",
+            "price": 210,
+            "category": "Kitchen",
+            "image": "https://picsum.photos/400?random=59"
+        },
+        {
+            "id": 60,
+            "title": "Cookware Set",
+            "price": 160,
+            "category": "Kitchen",
+            "image": "https://picsum.photos/400?random=60"
+        },
+        {
+            "id": 61,
+            "title": "Camera DSLR",
+            "price": 950,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=61"
+        },
+        {
+            "id": 62,
+            "title": "Camera Lens",
+            "price": 400,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=62"
+        },
+        {
+            "id": 63,
+            "title": "Drone",
+            "price": 780,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=63"
+        },
+        {
+            "id": 64,
+            "title": "Action Camera",
+            "price": 250,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=64"
+        },
+        {
+            "id": 65,
+            "title": "Memory Card 128GB",
+            "price": 35,
+            "category": "Electronics",
+            "image": "https://picsum.photos/400?random=65"
+        },
+        {
+            "id": 66,
+            "title": "Smart Bulb",
+            "price": 22,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=66"
+        },
+        {
+            "id": 67,
+            "title": "Door Lock Smart",
+            "price": 140,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=67"
+        },
+        {
+            "id": 68,
+            "title": "Security Camera",
+            "price": 120,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=68"
+        },
+        {
+            "id": 69,
+            "title": "Robot Vacuum",
+            "price": 320,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=69"
+        },
+        {
+            "id": 70,
+            "title": "Iron Steam",
+            "price": 60,
+            "category": "Home",
+            "image": "https://picsum.photos/400?random=70"
+        },
+        {
+            "id": 71,
+            "title": "Suitcase",
+            "price": 130,
+            "category": "Travel",
+            "image": "https://picsum.photos/400?random=71"
+        },
+        {
+            "id": 72,
+            "title": "Travel Bag",
+            "price": 75,
+            "category": "Travel",
+            "image": "https://picsum.photos/400?random=72"
+        },
+        {
+            "id": 73,
+            "title": "Neck Pillow",
+            "price": 18,
+            "category": "Travel",
+            "image": "https://picsum.photos/400?random=73"
+        },
+        {
+            "id": 74,
+            "title": "Passport Holder",
+            "price": 15,
+            "category": "Travel",
+            "image": "https://picsum.photos/400?random=74"
+        },
+        {
+            "id": 75,
+            "title": "Travel Adapter",
+            "price": 28,
+            "category": "Travel",
+            "image": "https://picsum.photos/400?random=75"
+        },
+        {
+            "id": 76,
+            "title": "Kids Toy Car",
+            "price": 35,
+            "category": "Toys",
+            "image": "https://picsum.photos/400?random=76"
+        },
+        {
+            "id": 77,
+            "title": "Puzzle Game",
+            "price": 20,
+            "category": "Toys",
+            "image": "https://picsum.photos/400?random=77"
+        },
+        {
+            "id": 78,
+            "title": "Lego Set",
+            "price": 85,
+            "category": "Toys",
+            "image": "https://picsum.photos/400?random=78"
+        },
+        {
+            "id": 79,
+            "title": "RC Car",
+            "price": 95,
+            "category": "Toys",
+            "image": "https://picsum.photos/400?random=79"
+        },
+        {
+            "id": 80,
+            "title": "Teddy Bear",
+            "price": 25,
+            "category": "Toys",
+            "image": "https://picsum.photos/400?random=80"
+        },
+        {
+            "id": 81,
+            "title": "Perfume",
+            "price": 70,
+            "category": "Beauty",
+            "image": "https://picsum.photos/400?random=81"
+        },
+        {
+            "id": 82,
+            "title": "Face Cream",
+            "price": 30,
+            "category": "Beauty",
+            "image": "https://picsum.photos/400?random=82"
+        },
+        {
+            "id": 83,
+            "title": "Hair Dryer",
+            "price": 65,
+            "category": "Beauty",
+            "image": "https://picsum.photos/400?random=83"
+        },
+        {
+            "id": 84,
+            "title": "Hair Straightener",
+            "price": 75,
+            "category": "Beauty",
+            "image": "https://picsum.photos/400?random=84"
+        },
+        {
+            "id": 85,
+            "title": "Makeup Kit",
+            "price": 120,
+            "category": "Beauty",
+            "image": "https://picsum.photos/400?random=85"
+        },
+        {
+            "id": 86,
+            "title": "Mountain Bike",
+            "price": 520,
+            "category": "Sport",
+            "image": "https://picsum.photos/400?random=86"
+        },
+        {
+            "id": 87,
+            "title": "Helmet",
+            "price": 45,
+            "category": "Sport",
+            "image": "https://picsum.photos/400?random=87"
+        },
+        {
+            "id": 88,
+            "title": "Fitness Tracker",
+            "price": 95,
+            "category": "Sport",
+            "image": "https://picsum.photos/400?random=88"
+        },
+        {
+            "id": 89,
+            "title": "Skipping Rope",
+            "price": 12,
+            "category": "Sport",
+            "image": "https://picsum.photos/400?random=89"
+        },
+        {
+            "id": 90,
+            "title": "Gym Gloves",
+            "price": 18,
+            "category": "Sport",
+            "image": "https://picsum.photos/400?random=90"
+        },
+        {
+            "id": 91,
+            "title": "Book Novel",
+            "price": 16,
+            "category": "Books",
+            "image": "https://picsum.photos/400?random=91"
+        },
+        {
+            "id": 92,
+            "title": "Cookbook",
+            "price": 22,
+            "category": "Books",
+            "image": "https://picsum.photos/400?random=92"
+        },
+        {
+            "id": 93,
+            "title": "Science Book",
+            "price": 28,
+            "category": "Books",
+            "image": "https://picsum.photos/400?random=93"
+        },
+        {
+            "id": 94,
+            "title": "Notebook Planner",
+            "price": 14,
+            "category": "Office",
+            "image": "https://picsum.photos/400?random=94"
+        },
+        {
+            "id": 95,
+            "title": "Marker Set",
+            "price": 19,
+            "category": "Office",
+            "image": "https://picsum.photos/400?random=95"
+        },
+        {
+            "id": 96,
+            "title": "Whiteboard",
+            "price": 65,
+            "category": "Office",
+            "image": "https://picsum.photos/400?random=96"
+        },
+        {
+            "id": 97,
+            "title": "Desk Organizer",
+            "price": 27,
+            "category": "Office",
+            "image": "https://picsum.photos/400?random=97"
+        },
+        {
+            "id": 98,
+            "title": "Sticky Notes",
+            "price": 9,
+            "category": "Office",
+            "image": "https://picsum.photos/400?random=98"
+        },
+        {
+            "id": 99,
+            "title": "Calculator",
+            "price": 21,
+            "category": "Office",
+            "image": "https://picsum.photos/400?random=99"
+        },
+        {
+            "id": 100,
+            "title": "Office Desk",
+            "price": 350,
+            "category": "Furniture",
+            "image": "https://picsum.photos/400?random=100"
+        }
+    ]
+}
