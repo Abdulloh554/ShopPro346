@@ -3,19 +3,13 @@ import axios from "axios";
 import CustomPagination from "../components/ProductPageNation";
 import { useTranslation } from "react-i18next";
 import ProductCard from "./ProductCard";
+import { useData } from "../context/DataContext";
 
 function Products() {
   const { t } = useTranslation();
+  const { loading: dataLoading } = useData();
 
   const [products, setProducts] = useState([]);
-  const [liked, setLiked] = useState(() => {
-    try {
-      const saved = localStorage.getItem("liked_products");
-      return saved ? JSON.parse(saved) : {};
-    } catch (e) {
-      return {};
-    }
-  });
   const [loading, setLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,7 +17,7 @@ function Products() {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:3002/products");
+      const res = await axios.get("http://localhost:3000/products");
       setProducts(res.data);
     } catch (err) {
       console.error(err);
@@ -36,24 +30,13 @@ function Products() {
     fetchProducts();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("liked_products", JSON.stringify(liked));
-  }, [liked]);
-
-  const toggleLike = (id) => {
-    setLiked((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
-
   const startIndex = (currentPage - 1) * pageSize;
   const selectedProducts = products.slice(
     startIndex,
     startIndex + pageSize
   );
 
-  if (loading)
+  if (loading || dataLoading)
     return (
       <div className="min-h-screen neu-bg flex items-center justify-center">
         <p className="text-2xl font-bold neu-text animate-pulse">
@@ -75,8 +58,6 @@ function Products() {
             <ProductCard 
               key={item.id} 
               item={item} 
-              liked={liked} 
-              toggleLike={toggleLike} 
             />
           ))}
         </div>

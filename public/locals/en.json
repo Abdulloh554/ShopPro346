@@ -59,5 +59,10 @@
   "products": "Products",
   "add_to_cart": "Add to cart",
   "dark_mode": "Dark Mode",
-  "light_mode": "Light Mode"
+  "light_mode": "Light Mode",
+  "login_required_likes": "Please login to see your favorites",
+  "login_required_cart": "Please login to see your cart",
+  "total": "Total",
+  "checkout": "Checkout",
+  "invalid_password": "Invalid password!"
 }

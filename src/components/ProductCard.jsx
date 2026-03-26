@@ -1,8 +1,12 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useData } from "../context/DataContext";
 
-function ProductCard({ item, liked, toggleLike }) {
+function ProductCard({ item }) {
   const { t, i18n } = useTranslation();
+  const { likes, toggleLike, addToCart } = useData();
+
+  const isLiked = likes.some((l) => l.productId === item.id);
 
   const displayTitle = item[`title_${i18n.language.substring(0, 2)}`] || item.title_en || item.title;
   const displayCategory = item[`category_${i18n.language.substring(0, 2)}`] || item.category_en || item.category;
@@ -20,11 +24,11 @@ function ProductCard({ item, liked, toggleLike }) {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            toggleLike(item.id);
+            toggleLike(item);
           }}
           className="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/70 dark:bg-black/30 backdrop-blur-md flex items-center justify-center text-xl transition-all duration-300 hover:scale-110 active:scale-95 shadow-sm z-10"
         >
-          {liked[item.id] ? "❤️" : "🤍"}
+          {isLiked ? "❤️" : "🤍"}
         </button>
       </div>
 
@@ -42,7 +46,10 @@ function ProductCard({ item, liked, toggleLike }) {
           </div>
       </div>
 
-      <button className="neu-convex mt-4 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:text-blue-500 transition-colors">
+      <button 
+        onClick={() => addToCart(item)}
+        className="neu-convex mt-4 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:text-blue-500 transition-colors"
+      >
         {t("add_to_cart")}
       </button>
     </div>

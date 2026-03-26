@@ -5,15 +5,15 @@ import { useTranslation } from "react-i18next";
 
 function Carusel() {
     const { t } = useTranslation();
-    const [users, setUsers] = useState([]);
+    const [slides, setSlides] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const fetchUsers = async () => {
+    const fetchSlides = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:3001/carusel"
+                "http://localhost:3000/carusel"
             );
-            setUsers(response.data);
+            setSlides(response.data);
             setLoading(false);
         } catch (error) {
             console.error("Xatolik:", error);
@@ -22,7 +22,7 @@ function Carusel() {
     };
 
     useEffect(() => {
-        fetchUsers();
+        fetchSlides();
     }, []);
 
     if (loading) return <p className="text-center mt-10 neu-text">{t("loading")}</p>;
@@ -32,7 +32,7 @@ function Carusel() {
             <div className="neu-flat rounded-[32px] overflow-hidden relative max-w-[1440px] mx-auto w-full p-2 md:p-4">
                 <div className="rounded-[24px] overflow-hidden neu-pressed">
                     <Carousel arrows autoplay effect="fade" dotPosition="bottom">
-                        {users.map((item) => (
+                        {slides.map((item) => (
                             <div
                                 key={item.id}
                                 className="relative h-[500px] md:h-[650px] outline-none"

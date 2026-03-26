@@ -2,24 +2,18 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useTranslation } from "react-i18next";
 import ProductCard from '../components/ProductCard';
+import { useData } from '../context/DataContext';
 
 function Like() {
   const { t } = useTranslation();
   const [products, setProducts] = useState([]);
-  const [liked, setLiked] = useState(() => {
-    try {
-      const saved = localStorage.getItem("liked_products");
-      return saved ? JSON.parse(saved) : {};
-    } catch (e) {
-      return {};
-    }
-  });
+  const { likes, loading: dataLoading, user } = useData();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:3002/products");
+        const res = await axios.get("http://localhost:3000/products");
         setProducts(res.data);
       } catch (err) {
         console.error(err);
@@ -31,20 +25,9 @@ function Like() {
     fetchProducts();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("liked_products", JSON.stringify(liked));
-  }, [liked]);
+  const likedProducts = products.filter(p => likes.some(l => l.productId === p.id));
 
-  const toggleLike = (id) => {
-    setLiked((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
-
-  const likedProducts = products.filter(p => liked[p.id]);
-
-  if (loading)
+  if (loading || dataLoading)
     return (
       <div className="min-h-screen neu-bg flex items-center justify-center">
         <p className="text-2xl font-bold neu-text animate-pulse">
@@ -52,6 +35,17 @@ function Like() {
         </p>
       </div>
     );
+
+  if (!user) {
+    return (
+      <div className="py-20 flex justify-center w-full min-h-screen neu-bg">
+        <div className="neu-flat rounded-[40px] p-16 text-center neu-text min-w-[400px]">
+          <h2 className="text-4xl font-black mb-4">{t('likes', 'Yoqtirganlar')}</h2>
+          <p className="opacity-70 text-lg font-medium">{t('login_required_likes', "Iltimos, yoqtirganlarni ko'rish uchun tizimga kiring.")}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="py-12 min-h-screen neu-bg">
@@ -72,8 +66,6 @@ function Like() {
               <ProductCard 
                 key={item.id} 
                 item={item} 
-                liked={liked} 
-                toggleLike={toggleLike} 
               />
             ))}
           </div>

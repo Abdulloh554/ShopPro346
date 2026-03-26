@@ -59,5 +59,10 @@
   "products": "Mahsulotlar",
   "add_to_cart": "Savatga qo'shish",
   "dark_mode": "Tungi rejim",
-  "light_mode": "Kunduzgi rejim"
+  "light_mode": "Kunduzgi rejim",
+  "login_required_likes": "Yoqtirganlarni ko'rish uchun tizimga kiring",
+  "login_required_cart": "Savatni ko'rish uchun tizimga kiring",
+  "total": "Jami",
+  "checkout": "To'lovga o'tish",
+  "invalid_password": "Parol noto'g'ri!"
 }

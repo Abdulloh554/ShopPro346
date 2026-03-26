@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "node server/server.cjs"
   },
   "dependencies": {
+    "json-server": "^0.17.4",
     "@tailwindcss/vite": "^4.2.1",
     "antd": "^6.3.2",
     "axios": "^1.13.6",
