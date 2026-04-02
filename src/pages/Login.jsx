@@ -1,124 +1,70 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, message } from 'antd';
-import {
-  UserOutlined,
-  LockOutlined,
-  LoginOutlined,
-  LogoutOutlined,
-  CalendarOutlined,
-} from '@ant-design/icons';
+import { UserOutlined, LockOutlined, LoginOutlined, LogoutOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import axios from "axios";
-import { useData } from '../context/DataContext';
-
-const API_URL = "http://localhost:3000";
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { api } from '../api/api';
 
 function Login() {
   const { t } = useTranslation();
-  const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
-  const { user, login, logout } = useData();
+  const { user, login, logout } = useAuth();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const onFinish = async (values) => {
     setLoading(true);
-    console.log(values);
-    
-
     try {
-      // 1. Check if user already exists
-      const usersRes = await axios.get(`${API_URL}/users?username=${values.username}`);
-      let userData;
-
-      if (usersRes.data.length > 0) {
-        // user exists, check password
-        const foundUser = usersRes.data[0];
-        if (foundUser.password === values.password) {
-            userData = foundUser;
-        } else {
-            message.error(t('invalid_password', 'Parol noto\'g\'ri!'));
-            setLoading(false);
-            return;
-        }
+      const response = await api.get(`users?username=${values.username}&password=${values.password}`);
+      const users = response.data;
+      
+      if (users.length > 0) {
+        login(users[0]);
+        message.success(t('login_success', 'Muvaffaqiyatli kirdingiz!'));
+        navigate("/");
       } else {
-        // new user, create it
-        const newUser = {
-          username: values.username,
-          password: values.password,
-          loginTime: new Date().toLocaleString(),
-        };
-        const res = await axios.post(`${API_URL}/users`, newUser);
-        userData = res.data;
+        message.error(t('login_error', 'Login yoki parol noto\'g\'ri!'));
       }
-
-      // 2. Set context and local storage via login function
-      login(userData);
-
-      message.success(t('login_success', 'Muvaffaqiyatli kirdingiz!'));
-      form.resetFields();
-
     } catch (error) {
       console.error(error);
-      message.error(t('login_error', 'Xatolik yuz berdi'));
+      message.error(t('server_error', 'Server bilan aloqa xatosi!'));
     } finally {
       setLoading(false);
     }
   };
 
-  const handleLogout = () => {
-    logout();
-    message.success(t('logout_success', 'Tizimdan chiqdingiz!'));
-  };
-
-  /* ================= PROFILE ================= */
+  // Agar user login bo'lgan bo'lsa profil ko'rsatish
   if (user) {
     return (
       <section className="py-4 md:py-8 font-sans neu-bg flex items-center justify-center">
         <div className="w-full max-w-md px-6">
-
           <div className="text-center mb-10">
-            <div className="w-28 h-28 mx-auto mb-6 neu-convex rounded-full flex items-center justify-center">
-              <UserOutlined className="text-5xl text-blue-500" />
+            <div className="w-24 h-24 mx-auto mb-6 neu-convex rounded-full flex items-center justify-center">
+              <UserOutlined className="text-4xl text-blue-500" />
             </div>
-
-            <h1 className="text-3xl md:text-4xl font-black neu-text uppercase tracking-tight mb-2">
+            <h1 className="text-3xl font-black neu-text uppercase">
               {t('profile', 'Profil')}
             </h1>
           </div>
 
-          <div className="neu-flat rounded-[40px] p-10 space-y-6">
-
-            <div className="neu-pressed rounded-[20px] p-5 flex items-center gap-5">
-              <UserOutlined className="text-xl text-blue-500" />
-              <div>
-                <p className="opacity-50 text-xs uppercase">Login</p>
-                <p className="font-bold">{user.username}</p>
-              </div>
-            </div>
-
-            <div className="neu-pressed rounded-[20px] p-5 flex items-center gap-5">
-              <CalendarOutlined className="text-xl text-blue-500" />
-              <div>
-                <p className="opacity-50 text-xs uppercase">Vaqt</p>
-                <p className="font-bold">{user.loginTime}</p>
-              </div>
-            </div>
-
+          <div className="neu-flat rounded-[40px] p-10 text-center">
+            <p className="text-xl font-bold neu-text mb-6">
+              {t('welcome', 'Xush kelibsiz')}, {user.username}!
+            </p>
             <Button
-              size="large"
               icon={<LogoutOutlined />}
-              onClick={handleLogout}
-              className="w-full neu-convex border-none h-16 rounded-full"
+              onClick={logout}
+              className="w-full neu-convex h-14 rounded-full border-none text-lg font-black uppercase"
             >
               {t('logout', 'Chiqish')}
             </Button>
-
           </div>
         </div>
       </section>
     );
   }
 
-  /* ================= LOGIN ================= */
   return (
     <section className="py-4 md:py-8 font-sans neu-bg flex items-center justify-center">
       <div className="w-full max-w-md px-6">
@@ -136,19 +82,19 @@ function Login() {
         <div className="neu-flat rounded-[40px] p-10">
           <Form form={form} layout="vertical" onFinish={onFinish}>
 
-            <Form.Item name="username" label="Login" rules={[{ required: true }]}>
+            <Form.Item 
+              name="username" 
+              label={t('username_label', 'Foydalanuvchi nomi')} 
+              rules={[{ required: true, message: t('username_required', 'Iltimos, foydalanuvchi nomini kiriting!') }]}
+            >
               <Input prefix={<UserOutlined />} className="neu-pressed rounded-[20px]" />
             </Form.Item>
 
             <Form.Item 
               name="password" 
-              label="Parol" 
+              label={t('password_label', 'Parol')} 
               rules={[
-                { required: true, message: 'Iltimos, parolingizni kiriting!' },
-                { 
-                  pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&._-])[A-Za-z\d@$!%*?&._-]{8,}$/,
-                  message: 'Parol kamida 8 ta belgi bo\'lib, bitta katta harf, bitta kichik harf, bitta son va bitta belgi bo\'lishi kerak!' 
-                }
+                { required: true, message: t('password_required', 'Iltimos, parolingizni kiriting!') },
               ]}
             >
               <Input.Password prefix={<LockOutlined />} className="neu-pressed rounded-[20px]" />
@@ -158,12 +104,21 @@ function Login() {
               htmlType="submit"
               loading={loading}
               icon={<LoginOutlined />}
-              className="w-full neu-convex h-14 rounded-full"
+              className="w-full neu-convex h-14 rounded-full border-none"
             >
               {t('login_btn', 'Kirish')}
             </Button>
 
           </Form>
+
+          <div className="text-center mt-6">
+            <span className="neu-text opacity-60 text-sm">
+              {t('no_account', "Akkauntingiz yo'qmi?")}{' '}
+            </span>
+            <Link to="/register" className="text-blue-500 font-bold text-sm hover:underline">
+              {t('register_link', "Ro'yxatdan o'tish")}
+            </Link>
+          </div>
         </div>
       </div>
     </section>

@@ -1,52 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { useTranslation } from "react-i18next";
 import ProductCard from '../components/ProductCard';
-import { useData } from '../context/DataContext';
+import { useAuth } from '../context/AuthContext';
+import { useLikes } from '../hooks/useQuaryLikes';
 
 function Like() {
   const { t } = useTranslation();
-  const [products, setProducts] = useState([]);
-  const { likes, loading: dataLoading, user } = useData();
-  const [loading, setLoading] = useState(true);
+  const { user } = useAuth();
+  
+  const { data: likedProducts = [], isLoading } = useLikes(user?.id);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await axios.get("http://localhost:3000/products");
-        setProducts(res.data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
-  const likedProducts = products.filter(p => likes.some(l => l.productId === p.id));
-
-  if (loading || dataLoading)
+  // --- Loading holati ---
+  if (isLoading) {
     return (
       <div className="min-h-screen neu-bg flex items-center justify-center">
         <p className="text-2xl font-bold neu-text animate-pulse">
-          {t("loading")}
+          {t("loading", "Yuklanmoqda...")}
         </p>
       </div>
     );
+  }
 
+  // --- User tizimga kirmagan bo'lsa ---
   if (!user) {
     return (
       <div className="py-20 flex justify-center w-full min-h-screen neu-bg">
         <div className="neu-flat rounded-[40px] p-16 text-center neu-text min-w-[400px]">
           <h2 className="text-4xl font-black mb-4">{t('likes', 'Yoqtirganlar')}</h2>
-          <p className="opacity-70 text-lg font-medium">{t('login_required_likes', "Iltimos, yoqtirganlarni ko'rish uchun tizimga kiring.")}</p>
+          <p className="opacity-70 text-lg font-medium">
+            {t('login_required_likes', "Iltimos, yoqtirganlarni ko'rish uchun tizimga kiring.")}
+          </p>
         </div>
       </div>
     );
   }
 
+  // --- User tizimga kirgan holatda ---
   return (
     <div className="py-12 min-h-screen neu-bg">
       <div className="max-w-7xl mx-auto px-6">
@@ -65,7 +54,7 @@ function Like() {
             {likedProducts.map((item) => (
               <ProductCard 
                 key={item.id} 
-                item={item} 
+                item={item.product || item} 
               />
             ))}
           </div>

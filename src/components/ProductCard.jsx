@@ -1,56 +1,130 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useData } from "../context/DataContext";
+import { message } from "antd";
+import { useAuth } from "../context/AuthContext";
+import { useLikes, useToggleLike } from "../hooks/useQuaryLikes";
+import { useCart, useAddToCart } from "../hooks/useQuaryCart";
 
 function ProductCard({ item }) {
   const { t, i18n } = useTranslation();
-  const { likes, toggleLike, addToCart } = useData();
+  const { user } = useAuth();
 
-  const isLiked = likes.some((l) => l.productId === item.id);
+  const userId = user?.id;
 
-  const displayTitle = item[`title_${i18n.language.substring(0, 2)}`] || item.title_en || item.title;
-  const displayCategory = item[`category_${i18n.language.substring(0, 2)}`] || item.category_en || item.category;
+  const { data: likes } = useLikes(userId);
+  const { data: cart } = useCart(userId);
+
+  const toggleLikeMutation = useToggleLike(userId);
+  const addToCartMutation = useAddToCart(userId);
+
+  /* array himoya */
+  const safeLikes = Array.isArray(likes) ? likes : [];
+  const safeCart = Array.isArray(cart) ? cart : [];
+
+  const isLocallyLiked = safeLikes.some(
+    (l) => l.productId === item.id
+  );
+
+  const lang = i18n.language.substring(0, 2);
+
+  const displayTitle =
+    item[`title_${lang}`] || item.title_en || item.title;
+
+  const displayCategory =
+    item[`category_${lang}`] ||
+    item.category_en ||
+    item.category;
+
+  const handleToggleLike = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!userId) {
+      message.warning(t("login_required", "Iltimos, tizimga kiring"));
+      return;
+    }
+
+    const currentlyLiked = isLocallyLiked;
+
+    const existingLike = safeLikes.find(
+      (l) => l.productId === item.id
+    );
+
+    toggleLikeMutation.mutate({
+      product: item,
+      existingLike,
+    });
+
+    message.success(
+      currentlyLiked
+        ? t("removed_from_likes", "Yoqtirganlardan olib tashlandi")
+        : t("added_to_likes", "Yoqtirganlarlariga qo'shildi")
+    );
+  };
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!userId) {
+      message.warning(t("login_required", "Iltimos, tizimga kiring"));
+      return;
+    }
+
+    const existingItem = safeCart.find(
+      (c) => c.productId === item.id
+    );
+
+    addToCartMutation.mutate({
+      product: item,
+      existingItem,
+    });
+
+    message.success(t("added_to_cart", "Savatga qo'shildi"));
+  };
 
   return (
-    <div
-      className="neu-flat rounded-[28px] p-4 flex flex-col relative transition hover:-translate-y-1 h-full"
-    >
-      {/* IMAGE */}
+    <div className="neu-flat rounded-[28px] p-4 flex flex-col relative transition hover:-translate-y-1 h-full">
       <div
         className="h-48 rounded-[20px] neu-pressed bg-cover bg-center mb-4 relative overflow-hidden shrink-0"
         style={{ backgroundImage: `url(${item.image})` }}
       >
-        {/* LIKE BUTTON */}
         <button
-          onClick={(e) => {
-            e.stopPropagation();
-            toggleLike(item);
-          }}
-          className="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/70 dark:bg-black/30 backdrop-blur-md flex items-center justify-center text-xl transition-all duration-300 hover:scale-110 active:scale-95 shadow-sm z-10"
+          type="button"
+          onClick={handleToggleLike}
+          className={`absolute top-3 right-3 w-10 h-10 rounded-full flex items-center justify-center text-2xl transition
+          ${
+            isLocallyLiked
+              ? "bg-red-500 text-white"
+              : "bg-white/70"
+          }`}
         >
-          {isLiked ? "❤️" : "🤍"}
+          {isLocallyLiked ? "❤️" : "🤍"}
         </button>
       </div>
 
       <div className="flex-1 flex flex-col">
-          <p className="text-[10px] font-bold uppercase tracking-widest neu-text opacity-40 mb-1">
-            {displayCategory}
+        <p className="text-[10px] font-bold opacity-40 mb-1">
+          {displayCategory}
+        </p>
+
+        <h2 className="font-bold line-clamp-2 text-sm md:text-base mb-2">
+          {displayTitle}
+        </h2>
+
+        <div className="mt-auto">
+          <p className="font-black text-lg">
+            ${item.price}
           </p>
-          <h2 className="font-bold neu-text line-clamp-2 text-sm md:text-base mb-2">
-            {displayTitle}
-          </h2>
-          <div className="mt-auto">
-            <p className="neu-text font-black text-lg">
-              ${item.price}
-            </p>
-          </div>
+        </div>
       </div>
 
-      <button 
-        onClick={() => addToCart(item)}
-        className="neu-convex mt-4 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:text-blue-500 transition-colors"
+      <button
+        type="button"
+        onClick={handleAddToCart}
+        className="neu-convex mt-4 py-3 rounded-full font-bold text-xs"
       >
-        {t("add_to_cart")}
+        {t("add_to_cart", "Savatga qo'shish")}
       </button>
     </div>
   );

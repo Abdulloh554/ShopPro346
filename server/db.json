@@ -1,0 +1,273 @@
+{
+  "carousels": [
+    {
+      "id": "1",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNIzsa6dGOfAWIsMh-QhYq80_BDwnYHqQZA&s"
+    },
+    {
+      "id": "2",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1440&q=80"
+    },
+    {
+      "id": "3",
+      "image": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1440&q=80"
+    },
+    {
+      "id": "4",
+      "image": "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=1440&q=80"
+    },
+    {
+      "id": "5",
+      "image": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1440&q=80"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNIzsa6dGOfAWIsMh-QhYq80_BDwnYHqQZA&s",
+      "title_uz": "Smartfon Samsung Galaxy S23",
+      "title_en": "Samsung Galaxy S23 Smartphone",
+      "title_ru": "Смартфон Samsung Galaxy S23",
+      "category_uz": "Elektronika",
+      "category_en": "Electronics",
+      "category_ru": "Электроника",
+      "price": 799
+    },
+    {
+      "id": "2",
+      "image": "https://picsum.photos/402",
+      "title_uz": "iPhone 15 Pro",
+      "title_en": "iPhone 15 Pro",
+      "title_ru": "iPhone 15 Pro",
+      "category_uz": "Elektronika",
+      "category_en": "Electronics",
+      "category_ru": "Электроника",
+      "price": 999
+    },
+    {
+      "id": "3",
+      "image": "https://picsum.photos/403",
+      "title_uz": "Noutbuk MacBook Air M2",
+      "title_en": "MacBook Air M2 Laptop",
+      "title_ru": "Ноутбук MacBook Air M2",
+      "category_uz": "Kompyuterlar",
+      "category_en": "Computers",
+      "category_ru": "Компьютеры",
+      "price": 1199
+    },
+    {
+      "id": "4",
+      "image": "https://picsum.photos/404",
+      "title_uz": "Sony WH-1000XM5 Quloqchinlari",
+      "title_en": "Sony WH-1000XM5 Headphones",
+      "title_ru": "Наушники Sony WH-1000XM5",
+      "category_uz": "Aksessuarlar",
+      "category_en": "Accessories",
+      "category_ru": "Аксессуары",
+      "price": 349
+    },
+    {
+      "id": "5",
+      "image": "https://picsum.photos/405",
+      "title_uz": "Apple Watch Series 9",
+      "title_en": "Apple Watch Series 9",
+      "title_ru": "Apple Watch Series 9",
+      "category_uz": "Gadjetlar",
+      "category_en": "Gadgets",
+      "category_ru": "Гаджеты",
+      "price": 399
+    },
+    {
+      "id": "6",
+      "image": "https://picsum.photos/406",
+      "title_uz": "Canon EOS R5 Fotoapparat",
+      "title_en": "Canon EOS R5 Camera",
+      "title_ru": "Фотоаппарат Canon EOS R5",
+      "category_uz": "Foto va Video",
+      "category_en": "Photo & Video",
+      "category_ru": "Фото и видео",
+      "price": 3899
+    },
+    {
+      "id": "7",
+      "image": "https://picsum.photos/407",
+      "title_uz": "Nintendo Switch OLED",
+      "title_en": "Nintendo Switch OLED",
+      "title_ru": "Nintendo Switch OLED",
+      "category_uz": "O'yin Konsollari",
+      "category_en": "Gaming Consoles",
+      "category_ru": "Игровые приставки",
+      "price": 349
+    },
+    {
+      "id": "8",
+      "image": "https://picsum.photos/408",
+      "title_uz": "Dyson V15 Changyutgich",
+      "title_en": "Dyson V15 Vacuum Cleaner",
+      "title_ru": "Пылесос Dyson V15",
+      "category_uz": "Maishiy texnika",
+      "category_en": "Home Appliances",
+      "category_ru": "Бытовая техника",
+      "price": 749
+    },
+    {
+      "id": "9",
+      "image": "https://picsum.photos/409",
+      "title_uz": "Samsung 4K Smart TV 55\"",
+      "title_en": "Samsung 4K Smart TV 55\"",
+      "title_ru": "Televizor Samsung 4K Smart TV 55\"",
+      "category_uz": "Televizorlar",
+      "category_en": "TVs",
+      "category_ru": "Телевизоры",
+      "price": 599
+    },
+    {
+      "id": "10",
+      "image": "https://picsum.photos/410",
+      "title_uz": "iPad Pro 12.9 M2",
+      "title_en": "iPad Pro 12.9 M2",
+      "title_ru": "iPad Pro 12.9 M2",
+      "category_uz": "Planshetlar",
+      "category_en": "Tablets",
+      "category_ru": "Планшеты",
+      "price": 1099
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "Admin@123"
+    },
+    {
+      "username": "Abdulloh",
+      "password": "Abdulloh_5",
+      "id": "2"
+    },
+    {
+      "username": "Abu",
+      "password": "Qwerty_8",
+      "id": "3"
+    }
+  ],
+  "likes": [
+    {
+      "userId": 1,
+      "productId": 1,
+      "product": {
+        "id": 1,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNIzsa6dGOfAWIsMh-QhYq80_BDwnYHqQZA&s",
+        "title_uz": "Smartfon Samsung Galaxy S23",
+        "title_en": "Samsung Galaxy S23 Smartphone",
+        "title_ru": "Смартфон Samsung Galaxy S23",
+        "category_uz": "Elektronika",
+        "category_en": "Electronics",
+        "category_ru": "Электроника",
+        "price": 799
+      },
+      "id": "1"
+    },
+    {
+      "userId": 3,
+      "productId": 1,
+      "product": {
+        "id": 1,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNIzsa6dGOfAWIsMh-QhYq80_BDwnYHqQZA&s",
+        "title_uz": "Smartfon Samsung Galaxy S23",
+        "title_en": "Samsung Galaxy S23 Smartphone",
+        "title_ru": "Смартфон Samsung Galaxy S23",
+        "category_uz": "Elektronika",
+        "category_en": "Electronics",
+        "category_ru": "Электроника",
+        "price": 799
+      },
+      "id": "4"
+    },
+    {
+      "userId": 2,
+      "productId": "1",
+      "product": {
+        "id": "1",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNIzsa6dGOfAWIsMh-QhYq80_BDwnYHqQZA&s",
+        "title_uz": "Smartfon Samsung Galaxy S23",
+        "title_en": "Samsung Galaxy S23 Smartphone",
+        "title_ru": "Смартфон Samsung Galaxy S23",
+        "category_uz": "Elektronika",
+        "category_en": "Electronics",
+        "category_ru": "Электроника",
+        "price": 799
+      },
+      "id": "1qH4TZ274zk"
+    },
+    {
+      "userId": 2,
+      "productId": "3",
+      "product": {
+        "id": "3",
+        "image": "https://picsum.photos/403",
+        "title_uz": "Noutbuk MacBook Air M2",
+        "title_en": "MacBook Air M2 Laptop",
+        "title_ru": "Ноутбук MacBook Air M2",
+        "category_uz": "Kompyuterlar",
+        "category_en": "Computers",
+        "category_ru": "Компьютеры",
+        "price": 1199
+      },
+      "id": "nS9yeoL7tmo"
+    }
+  ],
+  "cart": [
+    {
+      "userId": 1,
+      "productId": 1,
+      "product": {
+        "id": 1,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNIzsa6dGOfAWIsMh-QhYq80_BDwnYHqQZA&s",
+        "title_uz": "Smartfon Samsung Galaxy S23",
+        "title_en": "Samsung Galaxy S23 Smartphone",
+        "title_ru": "Смартфон Samsung Galaxy S23",
+        "category_uz": "Elektronika",
+        "category_en": "Electronics",
+        "category_ru": "Электроника",
+        "price": 799
+      },
+      "quantity": 1,
+      "id": "1"
+    },
+    {
+      "userId": 2,
+      "productId": "3",
+      "product": {
+        "id": "3",
+        "image": "https://picsum.photos/403",
+        "title_uz": "Noutbuk MacBook Air M2",
+        "title_en": "MacBook Air M2 Laptop",
+        "title_ru": "Ноутбук MacBook Air M2",
+        "category_uz": "Kompyuterlar",
+        "category_en": "Computers",
+        "category_ru": "Компьютеры",
+        "price": 1199
+      },
+      "quantity": 2,
+      "id": "IjFbBnAv23c"
+    },
+    {
+      "userId": 2,
+      "productId": "7",
+      "product": {
+        "id": "7",
+        "image": "https://picsum.photos/407",
+        "title_uz": "Nintendo Switch OLED",
+        "title_en": "Nintendo Switch OLED",
+        "title_ru": "Nintendo Switch OLED",
+        "category_uz": "O'yin Konsollari",
+        "category_en": "Gaming Consoles",
+        "category_ru": "Игровые приставки",
+        "price": 349
+      },
+      "quantity": 1,
+      "id": "fGfnPsJTYgw"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

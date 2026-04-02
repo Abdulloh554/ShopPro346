@@ -9,6 +9,7 @@ import AboutUs from "../pages/AboutUs";
 import Like from "../pages/Like";
 import Card from "../pages/Card";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path:"/login",
         element:<Login/>
+      },
+      {
+        path:"/register",
+        element:<Register/>
       },
     ]
   },

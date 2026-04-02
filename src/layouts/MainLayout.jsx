@@ -2,10 +2,12 @@ import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa6";
 import { IoHeartOutline } from "react-icons/io5";
+import { FaUserCircle } from "react-icons/fa";
 import { Select, Drawer, Button } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import { useTranslation } from "react-i18next";
 import Theme from "../components/Theme";
+import { useAuth } from "../context/AuthContext";
 
 /* ================= LOGO ================= */
 const ShopLogo = () => (
@@ -43,34 +45,41 @@ const drawerLinkClass = ({ isActive }) =>
     : "neu-flat neu-text"
   }`;
 
-function MainLayout() {
-  const { t, i18n } = useTranslation();
-  const [drawerVisible, setDrawerVisible] = useState(false);
+const NavItems = ({ inDrawer = false, onClick = () => { } }) => {
+  const { t } = useTranslation();
+  const { user } = useAuth();
+  const linkClass = inDrawer ? drawerLinkClass : navLinkClass;
 
-  const changeLanguage = (value) => {
-    i18n.changeLanguage(value);
-  };
-
-  const NavItems = ({ inDrawer = false, onClick = () => { } }) => {
-    const linkClass = inDrawer ? drawerLinkClass : navLinkClass;
-
-    return (
-      <>
-        <NavLink to="/contact" className={linkClass} onClick={onClick}>
-          {t('contact', 'Aloqa')}
-        </NavLink>
-        <NavLink to="/aboutus" className={linkClass} onClick={onClick}>
-          {t('about_us', 'Biz haqimizda')}
-        </NavLink>
+  return (
+    <>
+      <NavLink to="/contact" className={linkClass} onClick={onClick}>
+        {t('contact', 'Aloqa')}
+      </NavLink>
+      <NavLink to="/aboutus" className={linkClass} onClick={onClick}>
+        {t('about_us', 'Biz haqimizda')}
+      </NavLink>
+      {user ? (
         <NavLink to="/login" className={linkClass} onClick={onClick}>
-          {t('login', 'Kirish')}
+          {t('profile', 'Profil')}
         </NavLink>
+      ) : (
+        <>
+          <NavLink to="/login" className={linkClass} onClick={onClick}>
+            {t('login', 'Kirish')}
+          </NavLink>
+          <NavLink to="/register" className={linkClass} onClick={onClick}>
+            {t('register', "Ro'yxatdan o'tish")}
+          </NavLink>
+        </>
+      )}
+    </>
+  );
+};
 
-      </>
-    );
-  };
+const ActionIcons = () => {
+  const { user } = useAuth();
 
-  const ActionIcons = () => (
+  return (
     <div className="flex items-center gap-4">
       <NavLink to="/like" className={iconLinkClass}>
         <IoHeartOutline />
@@ -78,8 +87,22 @@ function MainLayout() {
       <NavLink to="/card" className={iconLinkClass}>
         <FaCartPlus />
       </NavLink>
+      {user && (
+        <NavLink to="/login" className={iconLinkClass}>
+          <FaUserCircle />
+        </NavLink>
+      )}
     </div>
   );
+};
+
+function MainLayout() {
+  const { i18n } = useTranslation();
+  const [drawerVisible, setDrawerVisible] = useState(false);
+
+  const changeLanguage = (value) => {
+    i18n.changeLanguage(value);
+  };
 
   return (
     <div className="min-h-screen neu-bg transition-colors duration-500 font-sans">
