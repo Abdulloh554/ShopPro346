@@ -2,88 +2,207 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-neu-light: #e0e5ec;
-  --color-neu-dark: #2d3036;
+  --color-primary: #1f2937;
+  --color-primary-hover: #111827;
+  --color-secondary: #4b5563;
+  --color-accent: #2563eb;
+  --color-bg-light: #f8fafc;
+  --color-bg-dark: #0f172a;
+  --color-card-light: #ffffff;
+  --color-card-dark: #111827;
+  --color-text-light: #0f172a;
+  --color-text-dark: #e5e7eb;
+}
+
+/* ═══════════════════════════════════════
+   SHOP CSS VARIABLES — DARK (default)
+═══════════════════════════════════════ */
+:root {
+  --shop-bg:          linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 60%, #16213e 100%);
+  --shop-header:      rgba(16, 22, 46, 0.88);
+  --shop-header-border: rgba(255, 255, 255, 0.07);
+
+  --shop-card-bg:     rgba(255, 255, 255, 0.05);
+  --shop-card-border: rgba(255, 255, 255, 0.09);
+  --shop-card-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --shop-card-hover-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  --shop-card-hover-border: rgba(0, 210, 255, 0.2);
+
+  --shop-text:        rgba(255, 255, 255, 0.88);
+  --shop-text-muted:  rgba(255, 255, 255, 0.52);
+  --shop-nav-link:    rgba(255, 255, 255, 0.72);
+  --shop-nav-active:  #00d2ff;
+  --shop-nav-active-bg: rgba(0, 210, 255, 0.12);
+  --shop-nav-active-border: #00d2ff;
+
+  --shop-icon-bg:     rgba(255, 255, 255, 0.07);
+  --shop-icon-border: rgba(255, 255, 255, 0.1);
+  --shop-icon-hover:  rgba(0, 210, 255, 0.18);
+
+  --shop-divider:     rgba(255, 255, 255, 0.12);
+  --shop-box-bg:      rgba(255, 255, 255, 0.06);
+  --shop-box-border:  rgba(255, 255, 255, 0.1);
+
+  --shop-drawer-bg:   linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+  --shop-drawer-border: rgba(255, 255, 255, 0.08);
+
+  --shop-input-bg:    rgba(255, 255, 255, 0.06);
+  --shop-input-border: rgba(255, 255, 255, 0.12);
+  --shop-input-text:  rgba(255, 255, 255, 0.85);
+
+  --shop-accent:      #00d2ff;
+  --shop-accent2:     #3a7bd5;
+
+  --shop-pressed-bg:  rgba(0, 0, 0, 0.25);
+  --shop-pressed-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* ═══════════════════════════════════════
+   SHOP CSS VARIABLES — LIGHT MODE
+═══════════════════════════════════════ */
+html:not(.dark) {
+  --shop-bg:          linear-gradient(135deg, #f0f4ff 0%, #e8eef8 60%, #dde6f7 100%);
+  --shop-header:      rgba(248, 251, 255, 0.95);
+  --shop-header-border: rgba(58, 123, 213, 0.12);
+
+  --shop-card-bg:     rgba(255, 255, 255, 0.88);
+  --shop-card-border: rgba(0, 0, 0, 0.07);
+  --shop-card-shadow: 0 4px 20px rgba(58, 123, 213, 0.08);
+  --shop-card-hover-shadow: 0 12px 32px rgba(58, 123, 213, 0.16);
+  --shop-card-hover-border: rgba(58, 123, 213, 0.35);
+
+  --shop-text:        #1a1a2e;
+  --shop-text-muted:  #555e72;
+  --shop-nav-link:    #374769;
+  --shop-nav-active:  #3a7bd5;
+  --shop-nav-active-bg: rgba(58, 123, 213, 0.1);
+  --shop-nav-active-border: #3a7bd5;
+
+  --shop-icon-bg:     rgba(58, 123, 213, 0.07);
+  --shop-icon-border: rgba(58, 123, 213, 0.18);
+  --shop-icon-hover:  rgba(58, 123, 213, 0.15);
+
+  --shop-divider:     rgba(0, 0, 0, 0.1);
+  --shop-box-bg:      rgba(58, 123, 213, 0.07);
+  --shop-box-border:  rgba(58, 123, 213, 0.15);
+
+  --shop-drawer-bg:   linear-gradient(180deg, #f0f4ff 0%, #e8eef8 100%);
+  --shop-drawer-border: rgba(58, 123, 213, 0.12);
+
+  --shop-input-bg:    rgba(255, 255, 255, 0.8);
+  --shop-input-border: rgba(58, 123, 213, 0.2);
+  --shop-input-text:  #1a1a2e;
+
+  --shop-accent:      #3a7bd5;
+  --shop-accent2:     #00d2ff;
+
+  --shop-pressed-bg:  rgba(58, 123, 213, 0.08);
+  --shop-pressed-shadow: inset 0 2px 6px rgba(58, 123, 213, 0.15);
+}
+
+/* ═══════════════════════════════════════
+   GLOBAL STYLES
+═══════════════════════════════════════ */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--shop-bg);
+  color: var(--shop-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 @layer utilities {
   .neu-flat {
-    background: var(--color-neu-light);
-    box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgba(255,255,255,0.8);
+    background: var(--shop-card-bg);
+    box-shadow: var(--shop-card-shadow);
+    border: 1px solid var(--shop-card-border);
+    border-radius: 1rem;
+    padding: 0.85rem;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    backdrop-filter: blur(8px);
   }
-  .dark .neu-flat {
-    background: var(--color-neu-dark);
-    box-shadow: 9px 9px 16px rgba(15,17,21,0.6), -9px -9px 16px rgba(60,65,75,0.5);
+  .neu-flat:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shop-card-hover-shadow);
+    border-color: var(--shop-card-hover-border);
   }
-  
+
   .neu-pressed {
-    background: var(--color-neu-light);
-    box-shadow: inset 6px 6px 10px 0 rgba(163,177,198,0.6), inset -6px -6px 10px 0 rgba(255,255,255,0.8);
-  }
-  .dark .neu-pressed {
-    background: var(--color-neu-dark);
-    box-shadow: inset 6px 6px 10px 0 rgba(15,17,21,0.6), inset -6px -6px 10px 0 rgba(60,65,75,0.5);
+    background: var(--shop-pressed-bg);
+    box-shadow: var(--shop-pressed-shadow);
+    border-radius: 0.8rem;
+    padding: 0.7rem;
   }
 
   .neu-convex {
-    background: linear-gradient(145deg, #f0f5fc, #cacfd5);
-    box-shadow: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgba(255,255,255,0.8);
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    color: #fff;
+    border-radius: 0.8rem;
+    transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 0.65rem 1.2rem;
+    box-shadow: 0 4px 14px rgba(0, 210, 255, 0.35);
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
   }
-  .dark .neu-convex {
-    background: linear-gradient(145deg, #30333a, #26282d);
-    box-shadow: 9px 9px 16px rgba(15,17,21,0.6), -9px -9px 16px rgba(60,65,75,0.5);
+  .neu-convex:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0, 210, 255, 0.45);
   }
 
   .neu-bg {
-    background: var(--color-neu-light);
-  }
-  .dark .neu-bg {
-    background: var(--color-neu-dark);
+    background: transparent;
   }
 
   .neu-text {
-    color: #3b4252;
+    color: var(--shop-text);
+    letter-spacing: 0.01em;
   }
-  .dark .neu-text {
-    color: #d8dee9;
+
+  .neu-text-joy {
+    background: linear-gradient(135deg, var(--shop-accent), var(--shop-accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--color-neu-light);
-  color: #4b5563; /* tailwind gray-600 */
-}
-
-html.dark body {
-  background-color: var(--color-neu-dark);
-  color: #d1d5db; /* tailwind gray-300 */
-}
-
-/* ===== Ant Design input / button text color overrides ===== */
+/* ═══════════════════════════════════════
+   ANT DESIGN OVERRIDES
+═══════════════════════════════════════ */
 .ant-input,
 .ant-input-affix-wrapper > input.ant-input,
 .ant-input-textarea textarea,
 .ant-btn {
-  color: #3b4252 !important;
-}
-html.dark .ant-input,
-html.dark .ant-input-affix-wrapper > input.ant-input,
-html.dark .ant-input-textarea textarea,
-html.dark .ant-btn {
-  color: #d8dee9 !important;
+  border-radius: 0.5rem !important;
 }
 
-/* ===== Ant Design Drawer — dark mode overrides ===== */
-html.dark .ant-drawer-content {
-  background-color: var(--color-neu-dark) !important;
-  color: #d1d5db;
+.ant-btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: #fff !important;
 }
-html.dark .ant-drawer-header {
-  background-color: var(--color-neu-dark) !important;
-  border-bottom: none;
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+  background-color: var(--color-primary-hover) !important;
+  border-color: var(--color-primary-hover) !important;
 }
-html.dark .ant-drawer-body {
-  background-color: var(--color-neu-dark) !important;
+
+/* Ant Select arrow/text inside dark header */
+.shop-header .ant-select-selector {
+  background: transparent !important;
+  color: var(--shop-nav-link) !important;
+}
+.shop-header .ant-select-arrow,
+.shop-header .ant-select-selection-item {
+  color: var(--shop-nav-link) !important;
+}
+
+/* Smooth theme transition on all elements */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }

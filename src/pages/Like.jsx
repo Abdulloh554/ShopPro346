@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from "react-i18next";
 import ProductCard from '../components/ProductCard';
 import { useAuth } from '../context/AuthContext';
-import { useLikes } from '../hooks/useQuaryLikes';
+import { useLikes } from '../hooks/useQueryLikes';
 
 function Like() {
   const { t } = useTranslation();
@@ -25,7 +25,7 @@ function Like() {
   if (!user) {
     return (
       <div className="py-20 flex justify-center w-full min-h-screen neu-bg">
-        <div className="neu-flat rounded-[40px] p-16 text-center neu-text min-w-[400px]">
+        <div className="neu-flat rounded-[40px] p-16 text-center neu-text min-w-100">
           <h2 className="text-4xl font-black mb-4">{t('likes', 'Yoqtirganlar')}</h2>
           <p className="opacity-70 text-lg font-medium">
             {t('login_required_likes', "Iltimos, yoqtirganlarni ko'rish uchun tizimga kiring.")}

@@ -3,12 +3,17 @@ import { api } from "./api";
 // ========== API functions ==========
 
 export const getCart = async (userId) => {
-  const response = await api.get(`cart?userId=${userId}`);
+  const response = await api.get(`cart?userId=${String(userId)}`);
   return response.data;
 };
 
 export const addToCart = async ({ userId, productId, product, quantity = 1 }) => {
-  const response = await api.post("cart", { userId, productId, product, quantity });
+  const response = await api.post("cart", { 
+    userId: String(userId), 
+    productId: String(productId), 
+    product, 
+    quantity 
+  });
   return response.data;
 };
 

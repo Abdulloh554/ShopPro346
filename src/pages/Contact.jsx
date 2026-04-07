@@ -106,7 +106,7 @@ function Contact() {
                   <Input
                     size="large"
                     placeholder={t('name_placeholder', 'Sizning ismingiz')}
-                    className="neu-pressed neu-text border-none py-4 px-6 rounded-[20px] shadow-none !bg-transparent placeholder:opacity-50 font-medium text-lg"
+                    className="neu-pressed neu-text border-none py-4 px-6 rounded-[20px] shadow-none bg-transparent! placeholder:opacity-50 font-medium text-lg"
                   />
                 </Form.Item>
 
@@ -121,7 +121,7 @@ function Contact() {
                     size="large"
                     placeholder="+998 90 123 45 67"
                     className="    neu-pressed neu-text border-none py-4 px-6 rounded-[20px]
-    shadow-none !bg-transparent
+    shadow-none bg-transparent!
     text-gray-900 dark:text-white
     placeholder:opacity-50 dark:placeholder:text-gray-400
     font-medium text-lg"
@@ -137,7 +137,7 @@ function Contact() {
                     size="large"
                     rows={4}
                     placeholder={t('message_placeholder', 'Xabaringizni shu yerga yozing...')}
-                    className="neu-pressed neu-text border-none py-4 px-6 rounded-[20px] shadow-none !bg-transparent placeholder:opacity-50 font-medium text-lg"
+                    className="neu-pressed neu-text border-none py-4 px-6 rounded-[20px] shadow-none bg-transparent! placeholder:opacity-50 font-medium text-lg"
                   />
                 </Form.Item>
 
@@ -148,7 +148,7 @@ function Contact() {
                     size="large"
                     loading={loading}
                     icon={<SendOutlined />}
-                    className="w-full neu-convex border-none h-16 text-lg font-black rounded-full text-blue-500 hover:text-blue-400 active:neu-pressed active:text-blue-600 transition-all uppercase tracking-widest !bg-transparent"
+                    className="w-full neu-convex border-none h-16 text-lg font-black rounded-full text-blue-500 hover:text-blue-400 active:neu-pressed active:text-blue-600 transition-all uppercase tracking-widest bg-transparent!"
                   >
                     {t('send', 'Yuborish')}
                   </Button>

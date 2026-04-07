@@ -1,11 +1,11 @@
-import Carusel from "../components/Carusel";
+import Carousel from "../components/Carousel";
 import Products from "../components/Products";
 
 function Home() {
 
   return (
     <div>
-      <Carusel />
+      <Carousel />
       <Products />
     </div>
   );

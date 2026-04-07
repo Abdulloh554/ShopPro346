@@ -4,7 +4,7 @@ import { getCart, addToCart, updateCartItem, removeFromCart } from "../api/cartA
 export const useCart = (userId) => {
   return useQuery({
     queryKey: ["cart", userId],
-    queryFn: () => getCart(userId),
+    queryFn: () => getCart(userId).then((data) => (Array.isArray(data) ? data : [])),
     enabled: !!userId,
     staleTime: 1000 * 60,
   });
@@ -31,19 +31,41 @@ export const useAddToCart = (userId) => {
       queryClient.setQueryData(["cart", userId], (old = []) => {
         if (existingItem) {
           return old.map((c) =>
-            c.id === existingItem.id
+            String(c.id) === String(existingItem.id)
               ? { ...c, quantity: c.quantity + 1 }
               : c
           );
         } else {
           return [
             ...old,
-            { id: Date.now(), userId, productId: product.id, product, quantity: 1 },
+            { 
+              id: String(Date.now()), 
+              userId: String(userId), 
+              productId: String(product.id), 
+              product, 
+              quantity: 1 
+            },
           ];
         }
       });
 
       return { previousCart };
+    },
+    onSuccess: (data, { existingItem }) => {
+      queryClient.setQueryData(["cart", userId], (old = []) => {
+        if (existingItem) {
+          return old.map((c) =>
+            String(c.id) === String(existingItem.id)
+              ? { ...c, quantity: existingItem.quantity + 1 }
+              : c
+          );
+        }
+
+        const filteredOld = old.filter(
+          (c) => String(c.productId) !== String(data.productId)
+        );
+        return [...filteredOld, data];
+      });
     },
     onError: (_err, _vars, context) => {
       if (context?.previousCart) {
@@ -74,7 +96,7 @@ export const useUpdateCartQuantity = (userId) => {
         if (quantity <= 0) {
           return old.filter((c) => c.id !== id);
         }
-        return old.map((c) => (c.id === id ? { ...c, quantity } : c));
+        return old.map((c) => (String(c.id) === String(id) ? { ...c, quantity } : c));
       });
 
       return { previousCart };
@@ -100,7 +122,7 @@ export const useRemoveFromCart = (userId) => {
       const previousCart = queryClient.getQueryData(["cart", userId]);
 
       queryClient.setQueryData(["cart", userId], (old = []) =>
-        old.filter((c) => c.id !== id)
+        old.filter((c) => String(c.id) !== String(id))
       );
 
       return { previousCart };

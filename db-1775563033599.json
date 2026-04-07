@@ -330,40 +330,6 @@
         "originalPrice": 999
       },
       "id": "4TUa89Vmjno"
-    },
-    {
-      "userId": "2",
-      "productId": "2",
-      "product": {
-        "id": "2",
-        "image": "https://picsum.photos/402",
-        "title_uz": "iPhone 15 Pro",
-        "title_en": "iPhone 15 Pro",
-        "title_ru": "iPhone 15 Pro",
-        "category_uz": "Elektronika",
-        "category_en": "Electronics",
-        "category_ru": "Электроника",
-        "price": 999,
-        "originalPrice": 1299
-      },
-      "id": "HxlOphmthkA"
-    },
-    {
-      "userId": "2",
-      "productId": "1",
-      "product": {
-        "id": "1",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKNIzsa6dGOfAWIsMh-QhYq80_BDwnYHqQZA&s",
-        "title_uz": "Smartfon Samsung Galaxy S23",
-        "title_en": "Samsung Galaxy S23 Smartphone",
-        "title_ru": "Смартфон Samsung Galaxy S23",
-        "category_uz": "Elektronika",
-        "category_en": "Electronics",
-        "category_ru": "Электроника",
-        "price": 799,
-        "originalPrice": 999
-      },
-      "id": "Tl2QZ15UMBY"
     }
   ],
   "cart": [

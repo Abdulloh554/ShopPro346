@@ -48,7 +48,7 @@ function AboutUs() {
 
       {/* Stats Section */}
       <section className="px-6 max-w-6xl mx-auto">
-        <div className="neu-flat rounded-[32px] py-12 px-8">
+        <div className="neu-flat rounded-4xl py-12 px-8">
           <Row gutter={[48, 48]} justify="center" className="text-center">
             <Col xs={12} md={6}>
               <div className="flex flex-col items-center">
@@ -86,7 +86,7 @@ function AboutUs() {
         <Row gutter={[32, 32]}>
           {features.map((feature, index) => (
              <Col xs={24} sm={12} lg={6} key={index}>
-              <div className="flex flex-col items-center text-center p-8 neu-flat rounded-[32px] h-full transition-transform duration-300">
+              <div className="flex flex-col items-center text-center p-8 neu-flat rounded-4xl h-full transition-transform duration-300">
                 <div className="mb-6 flex justify-center items-center w-20 h-20 neu-pressed rounded-full">
                   {feature.icon}
                 </div>
@@ -108,7 +108,7 @@ function AboutUs() {
           {t('mission', 'Bizning Maqsadimiz')}
         </h2>
         <div className="neu-flat p-4 rounded-[40px]">
-          <div className="neu-pressed p-8 md:p-12 rounded-[32px]">
+          <div className="neu-pressed p-8 md:p-12 rounded-4xl">
             <p className="text-2xl md:text-3xl font-bold text-blue-500 dark:text-blue-400 leading-tight italic">
               "{t('mission_desc', "Sizning uyingizga quvonch va qulaylik olib kirish. Har bir xaridda sifat, ishonch va samimiylikni his etishingizni ta'minlash.")}"
             </p>

@@ -1,30 +1,35 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const ThemeContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(
-        localStorage.getItem("theme") || "light"
+        () => localStorage.getItem("theme") || "dark"
     );
 
     useEffect(() => {
+        const root = document.documentElement;
         if (theme === "dark") {
-            document.documentElement.classList.add("dark");
+            root.classList.add("dark");
         } else {
-            document.documentElement.classList.remove("dark");
+            root.classList.remove("dark");
         }
         localStorage.setItem("theme", theme);
     }, [theme]);
 
-    const toggleTheme = () => {
-        setTheme(theme === "light" ? "dark" : "light");
-    };
+    const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
             {children}
         </ThemeContext.Provider>
     );
+};
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useTheme = () => {
+    const ctx = useContext(ThemeContext);
+    if (!ctx) throw new Error("useTheme must be used within ThemeProvider");
+    return ctx;
 };

@@ -4,7 +4,7 @@ import { getLikes, addLike, removeLike } from "../api/likesApi";
 export const useLikes = (userId) => {
   return useQuery({
     queryKey: ["likes", userId],
-    queryFn: () => getLikes(userId),
+    queryFn: () => getLikes(userId).then((data) => (Array.isArray(data) ? data : [])),
     enabled: !!userId,
     staleTime: 1000 * 60,
   });
@@ -35,6 +35,18 @@ export const useToggleLike = (userId) => {
       });
 
       return { previousLikes };
+    },
+    onSuccess: (data, { existingLike }) => {
+      queryClient.setQueryData(["likes", userId], (old = []) => {
+        if (existingLike) {
+          return old.filter((l) => String(l.id) !== String(existingLike.id));
+        }
+
+        const filteredOld = old.filter(
+          (l) => String(l.productId) !== String(data.productId)
+        );
+        return [...filteredOld, data];
+      });
     },
     onError: (_err, _vars, context) => {
       if (context?.previousLikes) {

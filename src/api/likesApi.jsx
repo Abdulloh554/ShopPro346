@@ -3,12 +3,16 @@ import { api } from "./api";
 // ========== API functions ==========
 
 export const getLikes = async (userId) => {
-  const response = await api.get(`likes?userId=${userId}`);
+  const response = await api.get(`likes?userId=${String(userId)}`);
   return response.data;
 };
 
 export const addLike = async ({ userId, productId, product }) => {
-  const response = await api.post("likes", { userId, productId, product });
+  const response = await api.post("likes", { 
+    userId: String(userId), 
+    productId: String(productId), 
+    product 
+  });
   return response.data;
 };
 

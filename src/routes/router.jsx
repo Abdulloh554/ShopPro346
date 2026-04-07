@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import AdminLayout from "../layouts/AdminLayout";
-import SellerLayout from "../layouts/SellerLayout";
 import MainLayout from "../layouts/MainLayout";
 import NotFound from "../pages/NotFound";
 import Home from "../pages/Home";
@@ -10,6 +9,13 @@ import Like from "../pages/Like";
 import Card from "../pages/Card";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import LoginAdmin from "../pages/admin/LoginAdmin";
+import ProtectedRoute from "../pages/admin/ProtectedRoute";
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import ProductManagement from "../pages/admin/ProductManagement";
+import UserManagement from "../pages/admin/UserManagement";
+import CarouselManagement from "../pages/admin/CarouselManagement";
+import SellerDashboard from "../pages/seller/SellerDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +25,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         element:<Home/>,
-      },
+      },  
       {
         path:"/contact",
         element:<Contact/>,
@@ -47,12 +53,38 @@ export const router = createBrowserRouter([
     ]
   },
   {
-    path: "/admin",
-    element: <AdminLayout />,
+    path:"/admin-login",
+    element:<LoginAdmin/>
   },
   {
-    path: "/seller",
-    element: <SellerLayout />,
+    path: "/admin",
+    element: (
+      <ProtectedRoute>
+        <AdminLayout />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        index: true,
+        element: <AdminDashboard />,
+      },
+      {
+        path: "products",
+        element: <ProductManagement />,
+      },
+      {
+        path: "users",
+        element: <UserManagement />,
+      },
+      {
+        path: "carousels",
+        element: <CarouselManagement />,
+      },
+      {
+        path: "orders",
+        element: <SellerDashboard />,
+      },
+    ],
   },
   {
     path: "*",
