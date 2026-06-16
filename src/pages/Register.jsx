@@ -16,27 +16,18 @@ function Register() {
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      // Tekshirish: username allaqachon mavjudmi
-      const checkResponse = await api.get(`users?username=${values.username}`);
-      if (checkResponse.data.length > 0) {
-        message.error(t('username_taken', "Bu foydalanuvchi nomi allaqachon band!"));
-        setLoading(false);
-        return;
-      }
-
-      // Yangi foydalanuvchi yaratish
-      const response = await api.post("users", {
+      const response = await api.post("auth/register", {
         username: values.username,
         password: values.password,
       });
 
-      // Avtomatik login qilish
-      login(response.data);
+      login(response.data.user);
       message.success(t('register_success', "Muvaffaqiyatli ro'yxatdan o'tdingiz!"));
       navigate("/");
     } catch (error) {
       console.error(error);
-      message.error(t('server_error', 'Server bilan aloqa xatosi!'));
+      const msg = error.response?.data?.message || t('server_error', 'Server bilan aloqa xatosi!');
+      message.error(msg);
     } finally {
       setLoading(false);
     }

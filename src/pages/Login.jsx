@@ -16,19 +16,17 @@ function Login() {
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      const response = await api.get(`users?username=${values.username}&password=${values.password}`);
-      const users = response.data;
-      
-      if (users.length > 0) {
-        login(users[0]);
-        message.success(t('login_success', 'Muvaffaqiyatli kirdingiz!'));
-        navigate("/");
-      } else {
-        message.error(t('login_error', 'Login yoki parol noto\'g\'ri!'));
-      }
+      const response = await api.post("auth/login", {
+        username: values.username,
+        password: values.password,
+      });
+      login(response.data.user);
+      message.success(t('login_success', 'Muvaffaqiyatli kirdingiz!'));
+      navigate("/");
     } catch (error) {
       console.error(error);
-      message.error(t('server_error', 'Server bilan aloqa xatosi!'));
+      const msg = error.response?.data?.message || t('login_error', 'Login yoki parol noto\'g\'ri!');
+      message.error(msg);
     } finally {
       setLoading(false);
     }

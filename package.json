@@ -8,8 +8,10 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "node server/server.cjs",
-    "json":"json-server --watch ./server/db.json"
+    "server": "cd server && npm start",
+    "server:dev": "cd server && npm run dev",
+    "seed": "cd server && npm run seed",
+    "json": "json-server --watch ./server/db.json"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
